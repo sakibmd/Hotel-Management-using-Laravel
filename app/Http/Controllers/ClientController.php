@@ -52,13 +52,18 @@ class ClientController extends Controller
             ]);
             $c = Client::create($validatedData);
 
-            $room = $c->room_no;    
-            $room_no = Room::find($room);
-            if (empty($room_no)){
-               $room_no= new Room;
-            }
-            $room_no->status = 1;
-            $room_no->save();
+            $room = $c->room_no; 
+			
+			$UpdateDetails = Room::where('room_no', '=',  $room)->first();
+			$UpdateDetails->status = 1;
+			$UpdateDetails->save();
+			
+            // $room_no = Room::find($room);
+            // if (empty($room_no)){
+               // $room_no= new Room;
+            // }
+            // $room_no->status = 1;
+            // $room_no->save();
 
 
             $request->session()->flash('status', 'New Client added successfully!');

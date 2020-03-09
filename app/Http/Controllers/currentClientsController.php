@@ -71,12 +71,17 @@ class currentClientsController extends Controller
 
 
          $room = $c->room_no;
-         $room = Room::find($room);
-         if (empty($room)){
-            $room= new Room;
-         }
-         $room->status = 0;
-         $room->save();
+		 
+		 $UpdateDetails = Room::where('room_no', '=',  $room)->first();
+		 $UpdateDetails->status = 0;
+		 $UpdateDetails->save();
+		 
+         // $room = Room::find($room);
+         // if (empty($room)){
+            // $room= new Room;
+         // }
+         // $room->status = 0;
+         // $room->save();
 
 
          

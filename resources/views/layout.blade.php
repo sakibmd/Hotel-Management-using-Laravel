@@ -33,6 +33,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('clients.index') }}">Records</a>
               </li>
+			  
+			  <li class="nav-item">
+                <a class="nav-link" href="{{ route('currentClients.index') }}">Current Clients</a>
+              </li>
+			  
+			  
           </ul>
         </div>
       </nav>
